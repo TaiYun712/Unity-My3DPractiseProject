@@ -159,7 +159,7 @@ MonoBehaviour:
     name: Fence Post and Slat
   - gameObject: {fileID: 1885966981441262, guid: d8f2ab2f201d2ce4f8ab652a96f511e0, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 56.32353
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -239,7 +239,7 @@ MonoBehaviour:
     name: Rock 1
   - gameObject: {fileID: 1909098221679596, guid: 8bd448fa710644f4bb396a8dd75c7998, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 40.100845
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -255,7 +255,7 @@ MonoBehaviour:
     name: Rock 2
   - gameObject: {fileID: 1067266342525884, guid: 374d86833f34db641a78e84465608e21, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 74.957985
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -285,3 +285,99 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: Fallen Log
+  - gameObject: {fileID: 1126999546172608, guid: 99dbf27ea6a043546ae9e556dccbbb50, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Autumn Cave
+  - gameObject: {fileID: 1943864933300782, guid: a2307793a0c82e04dbd6c0016ed86821, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Autumn Cliff 1
+  - gameObject: {fileID: 1353406275927580, guid: 2917e45540584ad47a9e862bcdc1119b, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Autumn Cliff 2
+  - gameObject: {fileID: 1275054651042720, guid: 67c1ff90d0f22c948bfd0bd1a909753c, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Autumn Cliff 3
+  - gameObject: {fileID: 1473202251970426, guid: 57d2902b7d7b9a8469a5749150daedc0, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Autumn Low Cliff 1
+  - gameObject: {fileID: 1150950798287894, guid: 112ea0f448464a94498744fcd01b6981, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Autumn Low Cliff 2

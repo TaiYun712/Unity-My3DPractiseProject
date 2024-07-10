@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabs:
   - gameObject: {fileID: 1589459417301568, guid: a24a206edf6e7844db8888c937e63f67, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 64.64286
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
@@ -111,7 +111,7 @@ MonoBehaviour:
     name: Cylinder.050
   - gameObject: {fileID: 1515328393731490, guid: 64a9ea022618d664883aa0709d1405d6, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 56.73949
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}

@@ -65,6 +65,7 @@ public class MouseManager : MonoBehaviour
             {
                 OnMouseClicked?.Invoke(hitInfo.point);
             }
+        
         }
     }
 

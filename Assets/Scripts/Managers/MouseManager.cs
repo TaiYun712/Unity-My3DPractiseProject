@@ -1,19 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using System;
 
+/*拖曳方法  這樣每到新場景就要重新拖曳
 [System.Serializable]
 public class EventVector3 : UnityEvent<Vector3> { }
-
+*/
 public class MouseManager : MonoBehaviour
 {
+    public static MouseManager Instance;
 
     RaycastHit hitInfo;
 
-    public EventVector3 onMouseClicked;
+    public event Action<Vector3> OnMouseClicked;
 
-   
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+          
+    }
 
     void Update()
     {
@@ -41,7 +54,7 @@ public class MouseManager : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.CompareTag("Ground"))
             {
-                onMouseClicked?.Invoke(hitInfo.point);
+                OnMouseClicked?.Invoke(hitInfo.point);
             }
         }
     }

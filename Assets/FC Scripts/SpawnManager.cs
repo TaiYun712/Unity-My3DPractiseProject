@@ -29,6 +29,7 @@ public class SpawnManager : MonoBehaviour
                Random.Range(-spawnArea.z / 2, spawnArea.z / 2)
            );
             Instantiate(prefab, randomPos, Quaternion.identity);
+           // Debug.Log("有動物生成在" + randomPos);
         }
     }
 }

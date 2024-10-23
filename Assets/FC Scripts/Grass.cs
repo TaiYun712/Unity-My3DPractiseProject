@@ -9,15 +9,25 @@ public class Grass : MonoBehaviour
 
     public GameObject smallGrass;
 
+    Coroutine growCoroutine;
+
     void Start()
     {
         if (!isBigGrass)
         {
-            StartCoroutine(GrowToGigGrass());
+          growCoroutine = StartCoroutine(GrowToGigGrass());
         }
     }
 
-   
+    private void OnDisable()
+    {
+        if (growCoroutine != null)
+        {
+            StopCoroutine(growCoroutine);
+        }
+    }
+
+
     IEnumerator GrowToGigGrass() //小草長成大草
     {
         yield return new WaitForSeconds(growTime);

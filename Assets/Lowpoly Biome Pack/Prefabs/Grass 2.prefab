@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 4662976853760160}
   - component: {fileID: 33128147402782188}
   - component: {fileID: 23364665951995918}
+  - component: {fileID: 7643490395480189101}
+  - component: {fileID: 6995758374627441615}
   m_Layer: 0
   m_Name: Grass 2
-  m_TagString: Untagged
+  m_TagString: BigGrass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +85,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7643490395480189101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194363331329652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e24810856f6e1468e15c7c07908013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBigGrass: 0
+  growTime: 3
+  smallGrass: {fileID: 0}
+--- !u!65 &6995758374627441615
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194363331329652}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0033388513, y: 0.0062027066, z: 0.0033289846}
+  m_Center: {x: -0.00089168514, y: 0.0031485853, z: -0.00031894096}

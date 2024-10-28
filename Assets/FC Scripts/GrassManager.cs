@@ -7,7 +7,7 @@ public class GrassManager : MonoBehaviour
     public static GrassManager instance { get; private set; }
 
     public GameObject smallGrass; //小草
-    public GameObject bigGrass; //大草
+    
 
     public Vector3 spawnArea = new Vector3(50, 0, 50); //生成範圍
 

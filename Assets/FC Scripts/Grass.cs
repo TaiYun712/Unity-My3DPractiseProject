@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Grass : MonoBehaviour
 {
-    public bool isBigGrass; //是否為大草
+    public bool isBigGrass =false; //是否為大草
     public float growTime; //生長時間
 
-    public GameObject smallGrass;
+    public Vector3 smallSize ;
+    public Vector3 bigSize ;
 
     Coroutine growCoroutine;
 
@@ -15,8 +16,10 @@ public class Grass : MonoBehaviour
     {
         if (!isBigGrass)
         {
-          growCoroutine = StartCoroutine(GrowToGigGrass());
+          growCoroutine = StartCoroutine(GrowToBigGrass());
         }
+
+        GrassSize();
     }
 
     private void OnDisable()
@@ -24,31 +27,44 @@ public class Grass : MonoBehaviour
         if (growCoroutine != null)
         {
             StopCoroutine(growCoroutine);
+            growCoroutine = null;
         }
     }
 
 
-    IEnumerator GrowToGigGrass() //小草長成大草
+    IEnumerator GrowToBigGrass() //小草長成大草
     {
         yield return new WaitForSeconds(growTime);
+    
+        isBigGrass=true;
 
-        if(GrassManager.instance != null && GrassManager.instance.bigGrass != null)
+        GrassSize();
+    }
+
+    void GrassSize()
+    {
+        if (isBigGrass)
         {
-             Instantiate(GrassManager.instance.bigGrass, transform.position, Quaternion.identity);
+            transform.localScale = bigSize;
         }
         else
         {
-            Debug.Log("大草有問題");
+            transform.localScale = smallSize;
         }
-        Destroy(gameObject);
     }
 
     public void OnEaten() //草被吃
     {
-        if (isBigGrass && smallGrass != null)
+        if (isBigGrass)
         {
-            Instantiate(smallGrass, transform.position, Quaternion.identity);
+            isBigGrass = false;
+            GrassSize();
         }
-        Destroy(gameObject) ;
+        else
+        {
+            Destroy(gameObject);
+
+        }
+
     }
 }

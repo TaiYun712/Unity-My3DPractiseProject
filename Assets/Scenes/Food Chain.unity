@@ -765,7 +765,7 @@ Transform:
   m_GameObject: {fileID: 998392880}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 18, z: -39.1}
+  m_LocalPosition: {x: 0, y: 10.6, z: -18.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -950,26 +950,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1985931814}
-  - component: {fileID: 1985931813}
+  - component: {fileID: 1985931815}
   m_Layer: 0
-  m_Name: GrassTest
+  m_Name: PlayerBehavior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1985931813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985931812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7749818c3c5d23f439a6fd2f60376d14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1985931814
 Transform:
   m_ObjectHideFlags: 0
@@ -985,6 +973,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1985931815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985931812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2903694e984b549a58b3cbf698153d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2024510131
 GameObject:
   m_ObjectHideFlags: 0
@@ -89915,7 +89915,7 @@ SceneRoots:
   - {fileID: 192477114}
   - {fileID: 5340591981841159470}
   - {fileID: 937215910902885866}
+  - {fileID: 1276419079}
   - {fileID: 834587278}
   - {fileID: 2024510132}
-  - {fileID: 1276419079}
   - {fileID: 1985931814}

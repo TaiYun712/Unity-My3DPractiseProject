@@ -31,6 +31,16 @@ public class Grass : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!isBigGrass)
+        {
+            growCoroutine = StartCoroutine(GrowToBigGrass());
+        }
+
+        GrassSize();
+    }
+
 
     IEnumerator GrowToBigGrass() //小草長成大草
     {

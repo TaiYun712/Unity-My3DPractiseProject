@@ -12,6 +12,8 @@ public class Grass : MonoBehaviour
 
     Coroutine growCoroutine;
 
+    public GameObject eatGrassEffect;
+
     void Start()
     {
         if (!isBigGrass)
@@ -20,6 +22,7 @@ public class Grass : MonoBehaviour
         }
 
         GrassSize();
+        eatGrassEffect.SetActive(false);
     }
 
     private void OnDisable()
@@ -65,6 +68,8 @@ public class Grass : MonoBehaviour
 
     public void OnEaten() //¯ó³Q¦Y
     {
+        eatGrassEffect.SetActive(true);
+
         if (isBigGrass)
         {
             isBigGrass = false;

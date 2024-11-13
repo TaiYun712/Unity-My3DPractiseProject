@@ -39,6 +39,9 @@ public class PlayerBehavior : MonoBehaviour
                 grass.OnEaten();
                 Debug.Log("¯ó³Q¦Y¤F");
             }
+        }else if(hitInfo.collider.gameObject.tag == "SmallGrass")
+        {
+            Destroy(hitInfo.collider.gameObject);
         }
     }
 }

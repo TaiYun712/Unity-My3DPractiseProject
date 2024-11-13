@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassAnis: {fileID: 1879547890}
   meatAnis: {fileID: 203727638}
-  grassAnisCount: 20
+  grassAnisCount: 1
   meatAnisCount: 0
   spawnArea: {x: 50, y: 0, z: 50}
 --- !u!4 &834587278
@@ -89920,6 +89920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'GrassAnimal '
       objectReference: {fileID: 0}
+    - target: {fileID: 4041129852106271109, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4450370642570198166, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5
@@ -89931,6 +89935,10 @@ PrefabInstance:
     - target: {fileID: 5818983246421063020, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229470007107751969, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6864873798054915066, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}
       propertyPath: m_Value
@@ -90022,7 +90030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2908578688868521846, guid: df2908ac3b55a694daae6919baefbd74, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

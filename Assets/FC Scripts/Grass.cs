@@ -59,10 +59,12 @@ public class Grass : MonoBehaviour
         if (isBigGrass)
         {
             transform.localScale = bigSize;
+            gameObject.tag = "BigGrass";
         }
         else
         {
             transform.localScale = smallSize;
+            gameObject.tag = "SmallGrass";
         }
     }
 

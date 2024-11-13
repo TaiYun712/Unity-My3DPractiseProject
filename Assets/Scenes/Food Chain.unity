@@ -995,8 +995,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAlivetime: 180
   maxHungry: 100
+  currentAlive: 0
+  currentHungry: 0
+  searchRadius: 0
   aliveSlider: {fileID: 277033486}
   hurgrySlider: {fileID: 702073507}
+  isMoving: 0
+  moveRadius: 20
+  waitTime: 0
 --- !u!1 &1985931812
 GameObject:
   m_ObjectHideFlags: 0
@@ -89904,6 +89910,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2646038835752027405, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}
       propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266510558845213700, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4041129852106271109, guid: 01904230958a3ce47a0a56844fdd2ea4, type: 3}

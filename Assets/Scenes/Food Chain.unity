@@ -348,7 +348,7 @@ MonoBehaviour:
   grassAnis: {fileID: 1879547890}
   meatAnis: {fileID: 203727638}
   grassAnisCount: 20
-  meatAnisCount: 8
+  meatAnisCount: 0
   spawnArea: {x: 50, y: 0, z: 50}
 --- !u!4 &834587278
 Transform:
@@ -90022,7 +90022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2908578688868521846, guid: df2908ac3b55a694daae6919baefbd74, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

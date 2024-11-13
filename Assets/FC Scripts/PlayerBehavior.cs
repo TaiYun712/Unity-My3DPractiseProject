@@ -5,11 +5,7 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     RaycastHit hitInfo;
-    void Start()
-    {
-
-    }
-
+   
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

@@ -79,9 +79,7 @@ public class Grass : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
-           
+            Destroy(gameObject);        
         }
-
     }
 }

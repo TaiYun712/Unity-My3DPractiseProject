@@ -10,14 +10,18 @@ public class GrassAnimal : MonoBehaviour
 
     public Slider aliveSlider, hurgrySlider;
 
+    private void Awake()
+    {
+        RandomLive();
+    }
+
     void Start()
     {
-         currentAlive = maxAlivetime;
-         currentHungry= maxHungry ;
+        currentAlive = maxAlivetime;
+        currentHungry= maxHungry ;
 
         aliveSlider.maxValue = maxAlivetime;
         aliveSlider.value = currentAlive;
-
 
     }
 
@@ -32,8 +36,17 @@ public class GrassAnimal : MonoBehaviour
         {
             currentAlive -= Time.deltaTime;
             aliveSlider.value = currentAlive;
-
         }
 
+        if(currentAlive <= 0)
+        {
+            Debug.Log(gameObject.name +"¦º¤`");
+            Destroy(gameObject);
+        }
+    }
+
+    void RandomLive()
+    {
+        maxAlivetime = Random.Range(100f,180f);
     }
 }

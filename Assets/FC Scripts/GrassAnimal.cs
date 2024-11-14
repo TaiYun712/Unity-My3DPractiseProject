@@ -12,6 +12,7 @@ public class GrassAnimal : MonoBehaviour
     float hungryTime; //低於此值開始覓食
     public float searchRadius; //覓食範圍
     GameObject targetGrass; //目標草
+    
 
     public Slider aliveSlider, hurgrySlider;
 
@@ -66,28 +67,26 @@ public class GrassAnimal : MonoBehaviour
 
     void GrassAnimalHungryTime() //草食動物 飢餓值
     {
-        hungryTime = maxHungry * 0.8f;
+        hungryTime = maxHungry * 0.8f; //飽足感低於八成時開始覺得餓
 
-        if(currentHungry > 0) 
+        if (currentHungry > 0) //持續減少飽足感
         {
             currentHungry -= Time.deltaTime;
             hurgrySlider.value = currentHungry;
         }
 
-        if (currentHungry < hungryTime)
+        if (currentHungry < hungryTime) //餓了 要開始找東西吃
         {
             if(targetGrass == null)
             {
                 Debug.Log(gameObject.name + "想吃草了");
                 FindGrass();
-            }
-           
+            }         
         }
         else
         {
             RandomMove();
         }
-
 
          if (currentHungry <= 0)
         {
@@ -107,10 +106,12 @@ public class GrassAnimal : MonoBehaviour
             if(obj.CompareTag("BigGrass"))
             {
                 closestBigGrass = obj.gameObject;
+                break;
             }
             else if(obj.CompareTag("SmallGrass") && closestBigGrass == null)
             {
                 closestSmallGrass = obj.gameObject;
+                break;
             }
         }
 

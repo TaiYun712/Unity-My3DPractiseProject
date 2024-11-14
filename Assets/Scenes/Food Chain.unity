@@ -997,7 +997,7 @@ MonoBehaviour:
   maxHungry: 100
   currentAlive: 0
   currentHungry: 0
-  searchRadius: 0
+  searchRadius: 20
   aliveSlider: {fileID: 277033486}
   hurgrySlider: {fileID: 702073507}
   isMoving: 0

@@ -1,26 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class GrassAnimal : MonoBehaviour
 {
-    public float  maxAlivetime,maxHungry;
+    public float maxAlivetime, maxHungry;
     public float currentAlive, currentHungry;
 
-    float hungryTime; //ßC©Û¶π≠»∂}©l≥V≠π
-    public float searchRadius; //≥V≠πΩd≥Ú
-    GameObject targetGrass; //•ÿº–ØÛ
-    
+    float hungryTime; //‰ΩéÊñºÊ≠§ÂÄºÈñãÂßãË¶ìÈ£ü
+    public float searchRadius; //Ë¶ìÈ£üÁØÑÂúç
+    GameObject targetGrass; //ÁõÆÊ®ôËçâ
+
 
     public Slider aliveSlider, hurgrySlider;
 
     NavMeshAgent agent;
     public bool isMoving = false;
-    public float moveRadius; //¿Hæ˜≤æ∞ Ωd≥Ú
-    public float waitTime; //¿Hæ˜≤æ∞ ∂°πj
-    float timer; //§U¶∏≤æ∞ Æ…∂°
+    public float moveRadius; //Èö®Ê©üÁßªÂãïÁØÑÂúç
+    public float waitTime; //Èö®Ê©üÁßªÂãïÈñìÈöî
+    float timer; //‰∏ãÊ¨°ÁßªÂãïÊôÇÈñì
 
     private void Awake()
     {
@@ -32,12 +33,12 @@ public class GrassAnimal : MonoBehaviour
     void Start()
     {
         currentAlive = maxAlivetime;
-        currentHungry= maxHungry ;
+        currentHungry = maxHungry;
 
-        //•Õ©R≠»slider™Ï©l≥]∏m
+        //ÁîüÂëΩÂÄºsliderÂàùÂßãË®≠ÁΩÆ
         aliveSlider.maxValue = maxAlivetime;
         aliveSlider.value = currentAlive;
-        //∞ßæj≠»slider™Ï©l≥]∏m
+        //È£¢È§ìÂÄºsliderÂàùÂßãË®≠ÁΩÆ
         hurgrySlider.maxValue = maxHungry;
         hurgrySlider.value = currentHungry;
 
@@ -47,68 +48,68 @@ public class GrassAnimal : MonoBehaviour
     {
         GrassAnimalAliveTime();
         GrassAnimalHungryTime();
-        
+
     }
 
-    void GrassAnimalAliveTime() //ØÛ≠π∞ ™´ •Õ©R≠»
+    void GrassAnimalAliveTime() //ËçâÈ£üÂãïÁâ© ÁîüÂëΩÂÄº
     {
-        if(currentAlive > 0)
+        if (currentAlive > 0)
         {
             currentAlive -= Time.deltaTime;
-            aliveSlider.value = currentAlive;
+            //aliveSlider.value = currentAlive;
         }
 
-        if(currentAlive <= 0)
+        if (currentAlive <= 0)
         {
-            Debug.Log(gameObject.name +"¶∫§`");
+            Debug.Log(gameObject.name + "Ê≠ª‰∫°");
             Destroy(gameObject);
         }
     }
 
-    void GrassAnimalHungryTime() //ØÛ≠π∞ ™´ ∞ßæj≠»
+    void GrassAnimalHungryTime() //ËçâÈ£üÂãïÁâ© È£¢È§ìÂÄº
     {
-        hungryTime = maxHungry * 0.8f; //π°®¨∑PßC©Û§K¶®Æ…∂}©lƒ±±oæj
+        hungryTime = maxHungry * 0.8f; //È£ΩË∂≥ÊÑü‰ΩéÊñºÂÖ´ÊàêÊôÇÈñãÂßãË¶∫ÂæóÈ§ì
 
-        if (currentHungry > 0) //´˘ƒÚ¥Ó§÷π°®¨∑P
+        if (currentHungry > 0) //ÊåÅÁ∫åÊ∏õÂ∞ëÈ£ΩË∂≥ÊÑü
         {
             currentHungry -= Time.deltaTime;
             hurgrySlider.value = currentHungry;
         }
 
-        if (currentHungry < hungryTime) //æj§F ≠n∂}©lß‰™F¶Ë¶Y
+        if (currentHungry < hungryTime) //È§ì‰∫Ü Ë¶ÅÈñãÂßãÊâæÊù±Ë•øÂêÉ
         {
-            if(targetGrass == null)
+            if (targetGrass == null)
             {
-                Debug.Log(gameObject.name + "∑Q¶YØÛ§F");
+                Debug.Log(gameObject.name + "ÊÉ≥ÂêÉËçâ‰∫Ü");
                 FindGrass();
-            }         
+            }
         }
         else
         {
             RandomMove();
         }
 
-         if (currentHungry <= 0)
+        if (currentHungry <= 0)
         {
-            Debug.Log(gameObject.name + "æj¶∫");
+            Debug.Log(gameObject.name + "È§ìÊ≠ª");
             Destroy(gameObject);
         }
     }
 
     void FindGrass()
     {
-        Collider[] nearbyObject =Physics.OverlapSphere(transform.position,searchRadius); 
+        Collider[] nearbyObject = Physics.OverlapSphere(transform.position, searchRadius);
         GameObject closestBigGrass = null;
         GameObject closestSmallGrass = null;
 
-        foreach(Collider obj in nearbyObject)
+        foreach (Collider obj in nearbyObject)
         {
-            if(obj.CompareTag("BigGrass"))
+            if (obj.CompareTag("BigGrass"))
             {
                 closestBigGrass = obj.gameObject;
                 break;
             }
-            else if(obj.CompareTag("SmallGrass") && closestBigGrass == null)
+            else if (obj.CompareTag("SmallGrass") && closestBigGrass == null)
             {
                 closestSmallGrass = obj.gameObject;
                 break;
@@ -117,9 +118,9 @@ public class GrassAnimal : MonoBehaviour
 
 
         targetGrass = closestBigGrass != null ? closestBigGrass : closestSmallGrass;
-        if(targetGrass != null)
+        if (targetGrass != null)
         {
-            Debug.Log(gameObject.name +"ß‰®ÏØÛ§F~~");
+            Debug.Log(gameObject.name + "ÊâæÂà∞Ëçâ‰∫Ü~~");
             MoveToTargetGrass();
         }
     }
@@ -132,15 +133,16 @@ public class GrassAnimal : MonoBehaviour
             agent.SetDestination(grassPos);
 
 
+            print(Vector3.Distance(transform.position, targetGrass.transform.position));
             if (Vector3.Distance(transform.position, targetGrass.transform.position) < 0.5f)
             {
-                Debug.Log(gameObject.name +"¶Y®ÏØÛ§F!!");
+                Debug.Log(gameObject.name + "ÂêÉÂà∞Ëçâ‰∫Ü!!");
                 targetGrass = null;
             }
         }
     }
 
-    void RandomMove() //¿Hæ˜πCø∫
+    void RandomMove() //Èö®Ê©üÈÅäËï©
     {
         isMoving = agent.velocity.magnitude > 0.1f;
 
@@ -154,7 +156,11 @@ public class GrassAnimal : MonoBehaviour
                 agent.SetDestination(newPos);
                 RandomWaitTime();
                 timer = 0;
+
+                Debug.DrawLine(gameObject.transform.position, newPos, Color.red);
+
             }
+
         }
 
 
@@ -178,11 +184,23 @@ public class GrassAnimal : MonoBehaviour
 
     void RandomLive()
     {
-        maxAlivetime = Random.Range(100f,180f);
+        maxAlivetime = Random.Range(100f, 180f);
     }
 
     void RandomHungry()
     {
-        maxHungry = Random.Range(80f,150f);
+        maxHungry = Random.Range(80f, 150f);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 0, 1, 0.25f);
+        Gizmos.DrawSphere(transform.position, searchRadius);
+
+        if (targetGrass != null)
+        {
+            Gizmos.color = new Color(1, 0, 0, 0.25f);
+            Gizmos.DrawSphere(targetGrass.transform.position, 0.1f);
+        }
     }
 }

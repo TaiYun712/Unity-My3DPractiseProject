@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GrassAnimal : MonoBehaviour
 {
+   
     public float maxAlivetime, maxHungry;
     public float currentAlive, currentHungry;
 
@@ -42,6 +43,8 @@ public class GrassAnimal : MonoBehaviour
         hurgrySlider.maxValue = maxHungry;
         hurgrySlider.value = currentHungry;
 
+        hungryTime = maxHungry * 0.8f; //飽足感低於八成時開始覺得餓
+
     }
 
     void Update()
@@ -68,8 +71,7 @@ public class GrassAnimal : MonoBehaviour
 
     void GrassAnimalHungryTime() //草食動物 飢餓值
     {
-        hungryTime = maxHungry * 0.8f; //飽足感低於八成時開始覺得餓
-
+        
         if (currentHungry > 0) //持續減少飽足感
         {
             currentHungry -= Time.deltaTime;
@@ -88,6 +90,7 @@ public class GrassAnimal : MonoBehaviour
         {
             RandomMove();
         }
+       
 
         if (currentHungry <= 0)
         {
@@ -118,10 +121,17 @@ public class GrassAnimal : MonoBehaviour
 
 
         targetGrass = closestBigGrass != null ? closestBigGrass : closestSmallGrass;
+        
+
         if (targetGrass != null)
         {
             Debug.Log(gameObject.name + "找到草了~~");
             MoveToTargetGrass();
+        }
+        else
+        {
+            Debug.Log("找不到草  繼續遊蕩");
+            RandomMove();
         }
     }
 
@@ -132,9 +142,8 @@ public class GrassAnimal : MonoBehaviour
             Vector3 grassPos = targetGrass.transform.position;
             agent.SetDestination(grassPos);
 
-
             print(Vector3.Distance(transform.position, targetGrass.transform.position));
-            if (Vector3.Distance(transform.position, targetGrass.transform.position) < 0.5f)
+            if (Vector3.Distance(transform.position,grassPos) < 1f)
             {
                 Debug.Log(gameObject.name + "吃到草了!!");
                 targetGrass = null;
@@ -200,7 +209,7 @@ public class GrassAnimal : MonoBehaviour
         if (targetGrass != null)
         {
             Gizmos.color = new Color(1, 0, 0, 0.25f);
-            Gizmos.DrawSphere(targetGrass.transform.position, 0.1f);
+            Gizmos.DrawSphere(targetGrass.transform.position, 1f);
         }
     }
 }

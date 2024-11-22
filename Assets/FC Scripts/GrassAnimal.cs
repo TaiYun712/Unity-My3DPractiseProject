@@ -14,7 +14,7 @@ public class GrassAnimal : MonoBehaviour
     float hungryTime; //低於此值開始覓食
     public float searchRadius; //覓食範圍
     GameObject targetGrass; //目標草
-
+    
 
     public Slider aliveSlider, hurgrySlider;
 
@@ -23,6 +23,9 @@ public class GrassAnimal : MonoBehaviour
     public float moveRadius; //隨機移動範圍
     public float waitTime; //隨機移動間隔
     float timer; //下次移動時間
+
+    public enum AnimalState { FreeMove,Hungry}
+    public AnimalState animalState;
 
     private void Awake()
     {
@@ -45,12 +48,38 @@ public class GrassAnimal : MonoBehaviour
 
         hungryTime = maxHungry * 0.8f; //飽足感低於八成時開始覺得餓
 
+        animalState = AnimalState.FreeMove;
+        
     }
 
     void Update()
     {
+
         GrassAnimalAliveTime();
         GrassAnimalHungryTime();
+
+        if (currentHungry < hungryTime) //餓了 要開始找東西吃
+        {
+            animalState = AnimalState.Hungry;
+        }
+        else
+        {
+            animalState = AnimalState.FreeMove;
+        }
+
+        switch (animalState)
+        {
+            case AnimalState.FreeMove:
+
+                RandomMove();
+
+                break;
+
+            case AnimalState.Hungry:
+
+                AnimalIsHungry();
+                break;
+        }
 
     }
 
@@ -76,26 +105,21 @@ public class GrassAnimal : MonoBehaviour
         {
             currentHungry -= Time.deltaTime;
             hurgrySlider.value = currentHungry;
-        }
-
-        if (currentHungry < hungryTime) //餓了 要開始找東西吃
-        {
-            if (targetGrass == null)
-            {
-                Debug.Log(gameObject.name + "想吃草了");
-                FindGrass();
-            }
-        }
-        else
-        {
-            RandomMove();
-        }
-       
-
+        }     
+   
         if (currentHungry <= 0)
         {
             Debug.Log(gameObject.name + "餓死");
             Destroy(gameObject);
+        }
+    }
+
+   void AnimalIsHungry() //動物飢餓
+    {
+        if (targetGrass == null)
+        {
+            Debug.Log(gameObject.name + "想吃草了");
+            FindGrass();
         }
     }
 
@@ -139,11 +163,14 @@ public class GrassAnimal : MonoBehaviour
     {
         if (targetGrass != null)
         {
-            Vector3 grassPos = targetGrass.transform.position;
-            agent.SetDestination(grassPos);
+            
+            if (Vector3.Distance(transform.position, targetGrass.transform.position) > 1f)
+            {
+                Vector3 grassPos = targetGrass.transform.position;
+                agent.SetDestination(grassPos);
 
-            print(Vector3.Distance(transform.position, targetGrass.transform.position));
-            if (Vector3.Distance(transform.position,grassPos) < 1f)
+            }
+            else
             {
                 Debug.Log(gameObject.name + "吃到草了!!");
                 targetGrass = null;

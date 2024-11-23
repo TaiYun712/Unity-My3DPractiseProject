@@ -24,7 +24,7 @@ public class GrassAnimal : MonoBehaviour
     public float waitTime; //隨機移動間隔
     float timer; //下次移動時間
 
-    public enum AnimalState { FreeMove,Hungry}
+    public enum AnimalState { FreeMove,Hungry,Dead}
     public AnimalState animalState;
 
     private void Awake()
@@ -67,6 +67,12 @@ public class GrassAnimal : MonoBehaviour
             animalState = AnimalState.FreeMove;
         }
 
+        if (currentAlive <= 0 || currentHungry <= 0) //老死或餓死
+        {
+            Debug.Log(gameObject.name + "死亡");
+            animalState = AnimalState.Dead;
+        }
+
         switch (animalState)
         {
             case AnimalState.FreeMove:
@@ -79,23 +85,23 @@ public class GrassAnimal : MonoBehaviour
 
                 AnimalIsHungry();
                 break;
+
+            case AnimalState.Dead:
+
+                Destroy(gameObject);
+                break;
         }
 
     }
 
     void GrassAnimalAliveTime() //草食動物 生命值
     {
-        if (currentAlive > 0)
+        if (currentAlive > 0) //持續減少生命值 模擬老化
         {
             currentAlive -= Time.deltaTime;
             //aliveSlider.value = currentAlive;
         }
 
-        if (currentAlive <= 0)
-        {
-            Debug.Log(gameObject.name + "死亡");
-            Destroy(gameObject);
-        }
     }
 
     void GrassAnimalHungryTime() //草食動物 飢餓值
@@ -106,12 +112,7 @@ public class GrassAnimal : MonoBehaviour
             currentHungry -= Time.deltaTime;
             hurgrySlider.value = currentHungry;
         }     
-   
-        if (currentHungry <= 0)
-        {
-            Debug.Log(gameObject.name + "餓死");
-            Destroy(gameObject);
-        }
+  
     }
 
    void AnimalIsHungry() //動物飢餓

@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grassAnis: {fileID: 1879547890}
   meatAnis: {fileID: 203727638}
-  grassAnisCount: 0
+  grassAnisCount: 5
   meatAnisCount: 0
   spawnArea: {x: 50, y: 0, z: 50}
 --- !u!4 &834587278
@@ -900,6 +900,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7643490395480189101, guid: 6c6e131b3a595244092ac08bec489de8, type: 3}
+      propertyPath: growTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643490395480189101, guid: 6c6e131b3a595244092ac08bec489de8, type: 3}
       propertyPath: eatGrassEffect
       value: 
       objectReference: {fileID: 847954574}
@@ -1003,6 +1007,7 @@ MonoBehaviour:
   isMoving: 0
   moveRadius: 20
   waitTime: 0
+  animalState: 0
 --- !u!1 &1985931812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallGrass: {fileID: 1067500582}
   spawnArea: {x: 50, y: 0, z: 50}
-  grassCount: 50
+  grassCount: 10
 --- !u!1 &2089621554
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class GrassAnimal : MonoBehaviour
     float hungryTime; //低於此值開始覓食
     public float searchRadius; //覓食範圍
     GameObject targetGrass; //目標草
-    
+   
 
     public Slider aliveSlider, hurgrySlider;
 
@@ -124,9 +124,10 @@ public class GrassAnimal : MonoBehaviour
         }
     }
 
+    Collider[] nearbyObject;
     void FindGrass()
     {
-        Collider[] nearbyObject = Physics.OverlapSphere(transform.position, searchRadius);
+        nearbyObject = Physics.OverlapSphere(transform.position, searchRadius);
         GameObject closestBigGrass = null;
         GameObject closestSmallGrass = null;
 
@@ -151,6 +152,7 @@ public class GrassAnimal : MonoBehaviour
         if (targetGrass != null)
         {
             Debug.Log(gameObject.name + "找到草了~~");
+
             MoveToTargetGrass();
         }
         else
@@ -162,20 +164,16 @@ public class GrassAnimal : MonoBehaviour
 
     void MoveToTargetGrass()
     {
-        if (targetGrass != null)
+        Vector3 grassPos = targetGrass.transform.position;
+        if (targetGrass != null && targetGrass.tag == "BigGrass")
         {
+            Debug.Log("移動到大草");
+            agent.SetDestination(grassPos);
             
-            if (Vector3.Distance(transform.position, targetGrass.transform.position) > 1f)
-            {
-                Vector3 grassPos = targetGrass.transform.position;
-                agent.SetDestination(grassPos);
-
-            }
-            else
-            {
-                Debug.Log(gameObject.name + "吃到草了!!");
-                targetGrass = null;
-            }
+        }
+        else
+        {
+            FindGrass();
         }
     }
 

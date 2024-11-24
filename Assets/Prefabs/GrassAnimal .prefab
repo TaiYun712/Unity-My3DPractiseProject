@@ -343,10 +343,10 @@ GameObject:
   - component: {fileID: 2228179056089831285}
   - component: {fileID: 2204329295686955117}
   - component: {fileID: 4887090067808211254}
-  - component: {fileID: 3266510558845213700}
+  - component: {fileID: 6117646156536411243}
   m_Layer: 0
   m_Name: 'GrassAnimal '
-  m_TagString: Untagged
+  m_TagString: GrassAnimal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,7 +637,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3266510558845213700
+--- !u!114 &6117646156536411243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -646,12 +646,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4041129852106271109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4626d94f938aaa44da9f2c4bb5b5ac75, type: 3}
+  m_Script: {fileID: 11500000, guid: ac1ed4485f39f17459504c995dd419f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveRadius: 20
-  waitTime: 5
+  maxAlivetime: 180
+  maxHungry: 100
+  currentAlive: 0
+  currentHungry: 0
+  searchRadius: 10
+  aliveSlider: {fileID: 2646038835752027405}
+  hurgrySlider: {fileID: 6864873798054915066}
   isMoving: 0
+  moveRadius: 20
+  waitTime: 0
+  animalState: 0
 --- !u!1 &4408318206806806125
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +742,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6757930639362070621}
   m_FillRect: {fileID: 5818983246421063020}
   m_HandleRect: {fileID: 9202415218229418080}
-  m_Direction: 1
+  m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
@@ -775,7 +783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5057345638060490885
@@ -922,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5861249183365536630
@@ -1157,7 +1165,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2479444835182919640}
   m_FillRect: {fileID: 501543405453919188}
   m_HandleRect: {fileID: 315828013019805813}
-  m_Direction: 1
+  m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0

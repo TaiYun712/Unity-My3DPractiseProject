@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - SmallGrass
   - BigGrass
+  - GrassAnimal
   layers:
   - Default
   - TransparentFX

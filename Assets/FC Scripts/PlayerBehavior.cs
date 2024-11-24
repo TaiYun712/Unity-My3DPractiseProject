@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     RaycastHit hitInfo;
-   
+
+    private void Start()
+    {
+        ClearUnusedAssets();
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -39,5 +44,11 @@ public class PlayerBehavior : MonoBehaviour
         {
             Destroy(hitInfo.collider.gameObject);
         }
+    }
+
+    void ClearUnusedAssets()
+    {
+        Resources.UnloadUnusedAssets();
+        System.GC.Collect();
     }
 }

@@ -14,7 +14,8 @@ public class GrassAnimal : MonoBehaviour
     float hungryTime; //低於此值開始覓食
     public float searchRadius; //覓食範圍
     GameObject targetGrass; //目標草
-   
+    Collider[] nearbyObject =new Collider[50];
+
 
     public Slider aliveSlider, hurgrySlider;
 
@@ -124,29 +125,11 @@ public class GrassAnimal : MonoBehaviour
         }
     }
 
-    Collider[] nearbyObject;
+    
     void FindGrass()
     {
-        nearbyObject = Physics.OverlapSphere(transform.position, searchRadius);
-        GameObject closestBigGrass = null;
-        GameObject closestSmallGrass = null;
-
-        foreach (Collider obj in nearbyObject)
-        {
-            if (obj.CompareTag("BigGrass"))
-            {
-                closestBigGrass = obj.gameObject;
-                break;
-            }
-            else if (obj.CompareTag("SmallGrass") && closestBigGrass == null)
-            {
-                closestSmallGrass = obj.gameObject;
-                break;
-            }
-        }
-
-
-        targetGrass = closestBigGrass != null ? closestBigGrass : closestSmallGrass;
+        if(GrassManager.instance == null) return;
+        targetGrass = GrassManager.instance.GetClosestGrass(transform.position,searchRadius);
         
 
         if (targetGrass != null)
@@ -201,14 +184,20 @@ public class GrassAnimal : MonoBehaviour
 
         Vector3 RandomLocation(float radius)
         {
+            for (int i =0; i<10; i++)
+            {
+                Vector3 randomDirection = Random.insideUnitSphere * radius;
+                randomDirection += transform.position;
 
-            Vector3 randomDirection = Random.insideUnitSphere * radius;
-            randomDirection += transform.position;
+                NavMeshHit hit;
+               if( NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
+                {
+                    return hit.position;
 
-            NavMeshHit hit;
-            NavMesh.SamplePosition(randomDirection, out hit, radius, 1);
-            return hit.position;
+                }
+            }
 
+            return transform.position;
         }
     }
 

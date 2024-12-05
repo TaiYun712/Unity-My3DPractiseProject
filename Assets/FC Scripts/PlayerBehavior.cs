@@ -6,8 +6,11 @@ public class PlayerBehavior : MonoBehaviour
 {
     RaycastHit hitInfo;
 
+    GrassPool grassPool;
+
     private void Start()
     {
+        grassPool = FindObjectOfType<GrassPool>();
         ClearUnusedAssets();
     }
 
@@ -42,7 +45,9 @@ public class PlayerBehavior : MonoBehaviour
             }
         }else if(hitInfo.collider.gameObject.tag == "SmallGrass")
         {
-            Destroy(hitInfo.collider.gameObject);
+            //  Destroy(hitInfo.collider.gameObject);
+            Grass grass = hitInfo.collider.GetComponent<Grass>();
+            grassPool.OnReleasePoolGrass(grass);
         }
     }
 

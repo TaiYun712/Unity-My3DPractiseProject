@@ -12,17 +12,22 @@ public class Grass : MonoBehaviour
 
     Coroutine growCoroutine;
 
-    public GameObject eatGrassEffect;
+    GrassPool grassPool;
+
+
 
     void Start()
     {
+        grassPool = FindObjectOfType<GrassPool>();
+
+
         if (!isBigGrass)
         {
           growCoroutine = StartCoroutine(GrowToBigGrass());
         }
 
         GrassSize();
-        eatGrassEffect.SetActive(false);
+        
     }
 
     private void OnDisable()
@@ -70,16 +75,9 @@ public class Grass : MonoBehaviour
 
     public void OnEaten() //草被吃
     {
-        eatGrassEffect.SetActive(true);
 
-        if (isBigGrass)
-        {
-            isBigGrass = false;
-            GrassSize();
-        }
-        else
-        {
-            Destroy(gameObject);        
-        }
+        grassPool.OnReleasePoolGrass(this);
+        Debug.Log("草被吃了");
+
     }
 }

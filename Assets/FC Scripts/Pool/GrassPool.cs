@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
+using UnityEngine.AI;
 
 public class GrassPool : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GrassPool : MonoBehaviour
     ObjectPool<Grass> grassPool;
 
     public Vector3 spawnArea = new Vector3(50, 0, 50); //生成範圍
-
+    public float maxFixDistance; //修正到最近有效位置的最大搜索距離
 
     private void Awake()
     {
@@ -28,8 +29,7 @@ public class GrassPool : MonoBehaviour
         for (int i = 0; i < grassCountSize; i++)
         {
             var grass = grassPool.Get();
-            Vector3 randomPos = new Vector3(
-                    Random.Range(-spawnArea.x / 2, spawnArea.x / 2), 0, Random.Range(-spawnArea.z / 2, spawnArea.z / 2));
+            Vector3 randomPos = GetValidNavMeshPosition();
 
             grass.transform.position = randomPos;
         } 
@@ -57,5 +57,20 @@ public class GrassPool : MonoBehaviour
         return grass;
     }
 
+     Vector3 GetValidNavMeshPosition()
+    {
+        Vector3 randomPos = new Vector3(
+                    Random.Range(-spawnArea.x / 2, spawnArea.x / 2), 0, Random.Range(-spawnArea.z / 2, spawnArea.z / 2));
+
+        NavMeshHit hit;
+
+        if(NavMesh.SamplePosition(randomPos,out hit, maxFixDistance, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+
+        Debug.Log("草沒找到合適位置");
+        return randomPos;
+    }
    
 }

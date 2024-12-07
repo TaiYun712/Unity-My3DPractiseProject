@@ -8,8 +8,12 @@ public class PlayerBehavior : MonoBehaviour
 
     GrassPool grassPool;
 
+     public GameObject eatGrassEffect;
+
     private void Start()
     {
+        eatGrassEffect.SetActive(false);
+
         grassPool = FindObjectOfType<GrassPool>();
         ClearUnusedAssets();
     }
@@ -40,15 +44,13 @@ public class PlayerBehavior : MonoBehaviour
             Grass grass = hitInfo.collider.GetComponent<Grass>();
             if (grass != null)
             {
+                
                 grass.OnEaten();
-                Debug.Log("¯ó³Q¦Y¤F");
+                eatGrassEffect.transform.position = hitInfo.collider.gameObject.transform.position;
+                eatGrassEffect.SetActive(true);
             }
-        }else if(hitInfo.collider.gameObject.tag == "SmallGrass")
-        {
-            //  Destroy(hitInfo.collider.gameObject);
-            Grass grass = hitInfo.collider.GetComponent<Grass>();
-            grassPool.OnReleasePoolGrass(grass);
         }
+        
     }
 
     void ClearUnusedAssets()

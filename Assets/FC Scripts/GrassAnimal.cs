@@ -128,8 +128,7 @@ public class GrassAnimal : MonoBehaviour
     
     void FindGrass()
     {
-        if(GrassManager.instance == null) return;
-        targetGrass = GrassManager.instance.GetClosestGrass(transform.position,searchRadius);
+       
         
 
         if (targetGrass != null)

@@ -44,7 +44,7 @@ public class PlayerBehavior : MonoBehaviour
             Grass grass = hitInfo.collider.GetComponent<Grass>();
             if (grass != null)
             {
-                
+           
                 grass.OnEaten();
                 eatGrassEffect.transform.position = hitInfo.collider.gameObject.transform.position;
                 eatGrassEffect.SetActive(true);

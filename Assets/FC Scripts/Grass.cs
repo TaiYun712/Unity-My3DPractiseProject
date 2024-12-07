@@ -60,7 +60,7 @@ public class Grass : MonoBehaviour
 
     }
 
-    void GrassSize()
+    public void GrassSize()
     {
         if (isBigGrass)
         {

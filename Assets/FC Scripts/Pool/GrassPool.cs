@@ -78,7 +78,7 @@ public class GrassPool : MonoBehaviour
         obj.Initialize(this); //傳入引用
 
         obj.gameObject.SetActive(true);
-        obj.transform.position = GetValidNavMeshPosition();
+        obj.transform.position = GetValidNavMeshPosition();       
         ActiveGrassCount++;
     }
 

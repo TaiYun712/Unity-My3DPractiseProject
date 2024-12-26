@@ -831,7 +831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &989396983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7643490395480189101, guid: 6c6e131b3a595244092ac08bec489de8, type: 3}
       propertyPath: growTime
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1525,7 +1525,7 @@ MonoBehaviour:
   minGrassCount: 20
   currentGrassCount: 0
   grassToSpawn: 0
-  checkInterval: 15
+  checkInterval: 5
 --- !u!1 &2089621554
 GameObject:
   m_ObjectHideFlags: 0
@@ -90447,8 +90447,8 @@ SceneRoots:
   - {fileID: 5340591981841159470}
   - {fileID: 937215910902885866}
   - {fileID: 1276419079}
-  - {fileID: 834587278}
   - {fileID: 2024510132}
+  - {fileID: 834587278}
   - {fileID: 1985931814}
   - {fileID: 989396987}
   - {fileID: 1631895563}

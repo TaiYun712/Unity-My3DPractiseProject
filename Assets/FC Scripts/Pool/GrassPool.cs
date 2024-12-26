@@ -50,7 +50,8 @@ public class GrassPool : MonoBehaviour
     Vector3 GetValidNavMeshPosition() // 把草修正到有效位置，避免懸空或穿模
     {
         Vector3 randomPos = new Vector3(
-                    Random.Range(-spawnArea.x / 2, spawnArea.x / 2), 0, Random.Range(-spawnArea.z / 2, spawnArea.z / 2));
+                    Random.Range(-spawnArea.x / 2, spawnArea.x / 2), 0
+                    , Random.Range(-spawnArea.z / 2, spawnArea.z / 2));
 
         NavMeshHit hit;
 
@@ -70,13 +71,13 @@ public class GrassPool : MonoBehaviour
     public void OnReleasePoolGrass(Grass obj)  //當物件回到物件池，為禁用狀態
     {
         obj.gameObject.SetActive(false); 
-       
+        obj.isBigGrass = false;
     }
 
     public void OnGetPoolGrass(Grass obj)  //當從物件池中取出，為啟用狀態
     {
         obj.Initialize(this); //傳入引用
-
+      
         obj.gameObject.SetActive(true);
         obj.transform.position = GetValidNavMeshPosition();       
         ActiveGrassCount++;

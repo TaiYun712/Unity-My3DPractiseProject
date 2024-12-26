@@ -10,7 +10,7 @@ public class Grass : MonoBehaviour
     public Vector3 smallSize ;
     public Vector3 bigSize ;
 
-    Coroutine growCoroutine;
+    public Coroutine growCoroutine;
 
     GrassPool grassPool;
 
@@ -57,7 +57,6 @@ public class Grass : MonoBehaviour
     private void Update()
     {
         GrassSize();
-
     }
 
     public void GrassSize()
@@ -79,15 +78,13 @@ public class Grass : MonoBehaviour
     {
         if(grassPool != null)
         {
-            isBigGrass = false;         
+                    
             grassPool.Release(this);
-            Debug.Log("草被吃了");
+            
         }
         else
         {
             Debug.LogError("GrassPool 未初始化，無法回收草！");
-        }
-       
-
+        }      
     }
 }
